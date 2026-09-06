@@ -1,6 +1,6 @@
 cask "vibejuice" do
-  version "0.4.4"
-  sha256 "39c13aed52df7db73469c087046e68b79c39029bf70407b0f3c4c27830ae93b6"
+  version "0.4.5"
+  sha256 "7fea9ebf81673c7f155b37f9bef0f4ee834a1801fb9a73acbd894cbaa38f70c9"
 
   url "https://github.com/samuelpatro/vibejuice/releases/download/v#{version}/VibeJuice-#{version}.dmg"
   name "VibeJuice"
