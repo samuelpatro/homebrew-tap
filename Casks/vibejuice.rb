@@ -1,6 +1,6 @@
 cask "vibejuice" do
-  version "0.4.20"
-  sha256 "9261def98f129256caad7a03635fea5157857d43df08356fdad1a90e2404ad90"
+  version "0.4.21"
+  sha256 "3892c7620d2e46880ea8c5ef1069af7c8df823ec999b6aecb98be5570d6941eb"
 
   url "https://github.com/samuelpatro/vibejuice/releases/download/v#{version}/VibeJuice-#{version}.dmg"
   name "VibeJuice"
@@ -9,12 +9,12 @@ cask "vibejuice" do
 
   depends_on macos: :tahoe
 
-  # Unsigned build: drop the quarantine flag before install so Gatekeeper does not block it.
-  preflight do
-    system_command "/usr/bin/xattr", args: ["-cr", "#{staged_path}/VibeJuice.app"]
-  end
-
   app "VibeJuice.app"
+
+  # Unsigned build: drop the quarantine flag before install so Gatekeeper does not block it.
+  preflight_steps do
+    run "/usr/bin/xattr", args: ["-cr", "{{staged_path}}/VibeJuice.app"]
+  end
 
   zap trash: [
     "~/Library/Application Support/VibeJuice",
